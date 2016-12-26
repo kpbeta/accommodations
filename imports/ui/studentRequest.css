@@ -1,0 +1,19 @@
+#studentrequestform {
+
+}
+
+#studentrequestform legend{
+	text-align: center;
+}
+
+#class2, #class3, #class4, #class5 {
+	display: none;
+}
+
+.areqblock {
+	/*background-color: red ;*/
+}
+
+#submitstudentreqform {
+	text-align: center;
+}
