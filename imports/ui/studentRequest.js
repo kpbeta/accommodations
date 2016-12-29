@@ -29,24 +29,23 @@ Template.body.events({
 	'submit #studentrequestform'(event) {
 		event.preventDefault();
  
-		let target = event.target;
-		alert(target);
-
-		StudentRequestsLists.insert({
-			fname: target.streqfirstname,
-			lname: target.streqlastname,
-			email: target.streqformemail,
-			class1: target.streqclass1,
-			prof1: target.streqprof1,
-			class2: target.streqclass2,
-			prof2: target.streqprof2,
-			class3: target.streqclass3,
-			prof3: target.streqprof3,
-			class4: target.streqclass4,
-			prof4: target.streqprof4,
-			class5: target.streqclass5,
-			prof5: target.streqprof5,
-		});
-		alert("submitted");
+		const tar = event.target;
+		
+		// StudentRequestsLists.insert({
+		// 	fname: target.streqfirstname,
+		// 	lname: target.streqlastname,
+		// 	email: target.streqformemail,
+		// 	class1: target.streqclass1,
+		// 	prof1: target.streqprof1,
+		// 	class2: target.streqclass2,
+		// 	prof2: target.streqprof2,
+		// 	class3: target.streqclass3,
+		// 	prof3: target.streqprof3,
+		// 	class4: target.streqclass4,
+		// 	prof4: target.streqprof4,
+		// 	class5: target.streqclass5,
+		// 	prof5: target.streqprof5,
+		// });
+		alert(tar.streqclass1.value);
 	}
 });

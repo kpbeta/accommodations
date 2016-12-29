@@ -1,4 +1,4 @@
-<body>
+<template name="studentRequestForm">
 
   <form id="studentrequestform" class="form-horizontal col-sm-10 col-sm-offset-1">
     <fieldset>
@@ -11,7 +11,7 @@
         <div class="form-group col-md-6">
           <label class="col-md-12" for="streqformfirstname">First Name</label>  
           <div class="col-md-12">
-          <input id="streqformfirstname" name="streqformfirstname" type="text" placeholder="" class="form-control input-md">
+          <input id="streqformfirstname" name="streqformfirstname" type="text" placeholder="" class="form-control input-md" required="">
           </div>
         </div>
 
@@ -19,7 +19,7 @@
         <div class="form-group col-md-6">
           <label class="col-md-12" for="streqformlastname">Last Name</label>  
           <div class="col-md-12">
-          <input id="streqformlastname" name="streqformlastname" type="text" placeholder="" class="form-control input-md">
+          <input id="streqformlastname" name="streqformlastname" type="text" placeholder="" class="form-control input-md" required="">
           </div>
         </div>
       </div>
@@ -29,7 +29,7 @@
         <div class="form-group col-md-12">
           <label class="col-md-12" for="streqformemail">Trinity Email</label>  
           <div class="col-md-10">
-          <input id="streqformemail" name="streqformemail" type="text" placeholder="" class="form-control input-md">
+          <input id="streqformemail" name="streqformemail" type="text" placeholder="" class="form-control input-md" required="">
             
           </div>
         </div>
@@ -49,7 +49,7 @@
         <div class="form-group col-md-6">
           <label class="col-md-12" for="streqformprof1">Professor's Last Name</label>  
           <div class="col-md-12">
-          <input id="streqformprof1" name="streqformprof1" type="text" placeholder="" class="form-control input-md">
+          <input id="streqformprof1" name="streqformprof1" type="text" placeholder="" class="form-control input-md" required="">
           <span class="help-block"><label for="addclass2"><input type="checkbox" name="addclass2" id="addclass2" value="1"> &nbsp; Add Another Class</label></span>  
           </div>
         </div>
@@ -155,5 +155,4 @@
 
     </fieldset>
   </form>
-
-</body>
+</template>
