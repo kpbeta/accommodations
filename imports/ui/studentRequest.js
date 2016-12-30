@@ -9,7 +9,7 @@ Template.body.onLoad = function() {
     	// $('#5').css('visibility', 'hidden');
 }
 
-Template.body.events({
+Template.studentRequestForm.events({
 	'click #addclass2'(event) {	
 		$('#class2').css('display', 'block');
 	},
@@ -28,24 +28,26 @@ Template.body.events({
 
 	'submit #studentrequestform'(event) {
 		event.preventDefault();
+		alert('HOLAD');
  
-		const tar = event.target;
+		const target = event.target;
 		
-		// StudentRequestsLists.insert({
-		// 	fname: target.streqfirstname,
-		// 	lname: target.streqlastname,
-		// 	email: target.streqformemail,
-		// 	class1: target.streqclass1,
-		// 	prof1: target.streqprof1,
-		// 	class2: target.streqclass2,
-		// 	prof2: target.streqprof2,
-		// 	class3: target.streqclass3,
-		// 	prof3: target.streqprof3,
-		// 	class4: target.streqclass4,
-		// 	prof4: target.streqprof4,
-		// 	class5: target.streqclass5,
-		// 	prof5: target.streqprof5,
-		// });
-		alert(tar.streqclass1.value);
+		StudentRequestsLists.insert({
+			fname: target.streqformfirstname.value,
+			lname: target.streqformlastname.value,
+			email: target.streqformemail.value,
+			class1: target.streqformclass1.value,
+			prof1: target.streqformprof1.value,
+			class2: target.streqformclass2.value,
+			prof2: target.streqformprof2.value,
+			class3: target.streqformclass3.value,
+			prof3: target.streqformprof3.value,
+			class4: target.streqformclass4.value,
+			prof4: target.streqformprof4.value,
+			class5: target.streqformclass5.value,
+			prof5: target.streqformprof5.value,
+		});
+		
+		FlowRouter.go('studentRequestConfirm');
 	}
 });
