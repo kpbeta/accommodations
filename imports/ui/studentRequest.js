@@ -9,7 +9,7 @@ Template.body.onLoad = function() {
     	// $('#5').css('visibility', 'hidden');
 }
 
-Template.studentRequestForm.events({
+Template.studentRequest.events({
 	'click #addclass2'(event) {	
 		$('#class2').css('display', 'block');
 	},
@@ -28,7 +28,6 @@ Template.studentRequestForm.events({
 
 	'submit #studentrequestform'(event) {
 		event.preventDefault();
-		alert('HOLAD');
  
 		const target = event.target;
 		

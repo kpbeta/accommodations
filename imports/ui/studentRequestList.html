@@ -1,0 +1,22 @@
+<template name="studentRequestList">
+	<span>
+		Sort by
+		<span id="sortByFirstName" name="sortByName">
+			...FIRST NAME...
+		</span>
+		<span id="sortByLastName" name="sortByLastName">
+			...LAST NAME...
+		</span>
+	</span>
+	<div>...</div>
+
+	{{#each requests}}
+		{{> dispRequest}}
+	{{/each}}
+</template>
+
+<template name="dispRequest">
+	
+	<div>{{fname}} {{lname}}</div>
+	
+</template>
