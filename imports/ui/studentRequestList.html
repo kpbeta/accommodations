@@ -10,13 +10,13 @@
 	</span>
 	<div>...</div>
 
-	{{#each requests}}
+	{{#each requestsByName}}
 		{{> dispRequest}}
 	{{/each}}
 </template>
 
 <template name="dispRequest">
 	
-	<div>{{fname}} {{lname}}</div>
+	<div>{{fname}} {{lname}} ----- {{class}}</div>
 	
 </template>
