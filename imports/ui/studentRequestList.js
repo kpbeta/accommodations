@@ -23,26 +23,41 @@ Template.studentRequestList.helpers({
 	// }
 
 	requestsByName: function() {
-		// alert("Helo");
 		let requestList = [];
-		// console.log(requestList);
+		
 		let students = RequesteeList.find().fetch();
+		let classes = RequesteeClassList.find({studentId: students[0]._id}, {sort: {className: 1}}).fetch();
+		
 		for (var i = 0; i < students.length; i++) {
-			let classes = RequesteeClassList.find({studentId: students[i]._id}, {sort: {className: 1}});
-			
+			let classes = RequesteeClassList.find({studentId: students[i]._id}, {sort: {className: 1}}).fetch();
 
 			requestList.push({
 				fname: students[i].fname,
 				lname: students[i].lname,
 				email: students[i].email,
-				class: classes.className 
+				class: classes
 			});
-			console.log(classes);
-			
 		}
+		
+		return requestList;
+	},
+
+	requestsByClass: function() {
+		let requestList = [];
+		let classes = ClassList.find().fetch();
+		
+		for (var i = 0; i < classes.length; i++) {
+			let students = RequesteeClassList.find({classId: classes[i]._id}, {sort: {lname: 1}}).fetch();
+
+			requestList.push({
+				class: classes[i].className,
+				prof: classes[i].profName,
+				student: students
+			});
+		}
+
 		return requestList;
 	}
-
 });
 
 Template.studentRequestList.events({

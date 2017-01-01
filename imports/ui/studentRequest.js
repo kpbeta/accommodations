@@ -30,11 +30,14 @@ Template.studentRequest.events({
 		event.preventDefault();
  
 		const target = event.target;
+		let firstName = target.streqformfirstname.value;
+		let lastName = target.streqformlastname.value;
+		let userEmail = target.streqformemail.value;
 		
 		let requesteeId = RequesteeList.insert({
-			fname: target.streqformfirstname.value,
-			lname: target.streqformlastname.value,
-			email: target.streqformemail.value,
+			fname: firstName,
+			lname: lastName,
+			email: userEmail,
 			classOf: "",
 			approved: 0
 		});
@@ -57,7 +60,7 @@ Template.studentRequest.events({
 		for (var i = 0; i < classes.length; i++) {
 			if (classes[i]) {//Checking Emptyness
 				
-				let requestedClassId
+				let requestedClassId;
 				let requestedClass = ClassList.findOne({className: classes[i]});
 				if (requestedClass)
 				 	requestedClassId= requestedClass._id;
@@ -78,6 +81,9 @@ Template.studentRequest.events({
 
 				RequesteeClassList.insert({
 					studentId: requesteeId,
+					fname: firstName,
+					lname: lastName,
+					email: userEmail,
 					classId: requestedClassId,
 					className: classes[i],
 					profName: profs[i],

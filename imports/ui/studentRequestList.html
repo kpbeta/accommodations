@@ -1,22 +1,57 @@
 <template name="studentRequestList">
-	<span>
-		Sort by
-		<span id="sortByFirstName" name="sortByName">
-			...FIRST NAME...
+	<div id="sortRequest">
+		SORT BY 
+		<span id="byStudents">
+			<span id="byFirstName">First Name</span>
+			<span id="byLastName">Last Name</span>
 		</span>
-		<span id="sortByLastName" name="sortByLastName">
-			...LAST NAME...
-		</span>
-	</span>
-	<div>...</div>
 
+		<span id="byClass">
+			<span id="byClassName">Class Name</span>
+			<span id="byLastName">Professor's Name</span>
+		</span>
+	</div>
+	{{#each requestsByClass}}
+		{{> dispRequestsByClass}}
+	{{/each}}
+</template>
+
+<!-- 
 	{{#each requestsByName}}
 		{{> dispRequest}}
 	{{/each}}
 </template>
+ -->
+ 
+<template name="dispRequestsByName">
+	<div>
+		{{fname}} {{lname}} 
+		<ul>
+			{{#each class}}
+				{{> dispClassList}}
+			{{/each}}	
+		</ul>
+		
+	</div>
+</template>
 
-<template name="dispRequest">
-	
-	<div>{{fname}} {{lname}} ----- {{class}}</div>
-	
+<template name="dispClassList">
+	<li>{{className}} - {{profName}}</li>
+</template>
+
+
+<template name="dispRequestsByClass">
+	<div>
+		{{class}} - {{prof}} 
+		<ul>
+			{{#each student}}
+				{{> dispStudentList}}
+			{{/each}}	
+		</ul>
+		
+	</div>
+</template>
+
+<template name="dispStudentList">
+	<li>{{lname}}, {{fname}} - {{email}}</li>
 </template>
