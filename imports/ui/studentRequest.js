@@ -6,9 +6,9 @@ import './studentRequest.html';
 import './studentRequest.css';
 
 var secretWord = "myApp";
-function createVerificationEmail(stfname, stlname, studentId, salt) {
-	let v_url = "http://localhost:3000/verify/";
-	v_url += stfname+"-"+stlname"-";
+function createVerificationEmail(stfname, stlname, email, studentId, salt) {
+	let emailSplit = email.split("."); 
+	let v_url = "http://localhost:3000/verify/"+emailSplit[0]+"--"+emailSplit[1]+"--";
 	v_url += CryptoJS.MD5(stfname+stlname+studentId.substring(10), salt);
 	return v_url;
 };
@@ -108,7 +108,7 @@ Template.studentRequest.events({
 				'kalyanranjanp@gmail.com',
 				'asd@gmail.com',
 				'How do you like me now?',
-				createVerificationEmail(firstName, lastName, requesteeId, secretWord)
+				createVerificationEmail(firstName, lastName, userEmail, requesteeId, secretWord)
 				);
 
 	}
