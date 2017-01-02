@@ -1,5 +1,9 @@
-// import '../imports/ui/studentRequest.js';
+import { Template } from 'meteor/templating';
 
-Template.mainBody.helpers({
+import './main.html';
+import './main.css';
+
+Template.mainContent.helpers({
 	
+
 });

@@ -1,7 +1,24 @@
 <head>
   <title>Trinity Accomodations</title>
 </head>
+<body>
+	{{> loginButtons }}
+	{{> mainContent }}
+</body>
 
 <template name="mainContent">
 	{{> Template.dynamic template=main }}
+</template>
+
+<template name="loadingContent">
+	Loading.....
+</template>
+
+<template name="notAuthorized">
+	Sorry! You are not authorized to see this page.
+</template>
+
+
+<template name="notFound">
+	ERROR 404: Page not Found
 </template>

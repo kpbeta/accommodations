@@ -5,13 +5,23 @@ import { RequesteeList, ClassList, RequesteeClassList } from '../api/studentRequ
 import './studentRequest.html';
 import './studentRequest.css';
 
+var secretWord = "myApp";
+function createVerificationEmail(stfname, stlname, studentId, salt) {
+	let v_url = "http://localhost:3000/verify/";
+	v_url += stfname+"-"+stlname"-";
+	v_url += CryptoJS.MD5(stfname+stlname+studentId.substring(10), salt);
+	return v_url;
+};
+
 Template.body.onLoad = function() {
     	// $('#5').css('visibility', 'hidden');
 }
 
+
 Template.studentRequest.events({
 	'click #addclass2'(event) {	
 		$('#class2').css('display', 'block');
+		console.log(CryptoJS.MD5('Message').toString().substring(12));
 	},
 
 	'click #addclass3'(event) {
@@ -93,5 +103,13 @@ Template.studentRequest.events({
 		}
 
 		FlowRouter.go('studentRequestConfirm');
+
+		Meteor.call('sendEmail',
+				'kalyanranjanp@gmail.com',
+				'asd@gmail.com',
+				'How do you like me now?',
+				createVerificationEmail(firstName, lastName, requesteeId, secretWord)
+				);
+
 	}
 });
