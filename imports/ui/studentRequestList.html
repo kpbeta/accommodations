@@ -1,5 +1,5 @@
 <template name="studentRequestList">
-	<div id="sortRequest">
+	<!-- <div id="sortRequest">
 		SORT BY (STUDENTS) 
 		<span id="byStudents">
 			<span id="byFirstName">First Name</span>
@@ -11,33 +11,33 @@
 			<span id="byProfName">Professor's Name</span>
 		</span>
 	</div>
-	
+	 -->
 	
 	{{> Template.dynamic template=requestList}}
 </template>
 	 
 <template name="dispByName">	 
 	{{#each requestsByName}}
-		<div>
+		<ul>
 			{{fname}} {{lname}} 
 			<ul>
 				{{#each class}}
 					<li>{{className}} - {{profName}}</li>
 				{{/each}}	
 			</ul>
-		</div>
+		</ul>
 	{{/each}}
 </template>
 
 <template name="dispByClass">
 	{{#each requestsByClass}}
-		<div>
+		<ul>
 			{{class}} - {{prof}} 
 			<ul>
 				{{#each student}}
 					<li>{{lname}}, {{fname}} - {{email}}</li>
 				{{/each}}	
 			</ul>
-		</div>
+		</ul>
 	{{/each}}
 </template>
