@@ -13,27 +13,24 @@ Template.verificationTemplate.helpers({
 	// },
 
 	verifyLink: function() {
-		let id = FlowRouter.getParam('verificationId').split("--");
-		let userEmail = id[0]+"."+id[1];
+		let vid = FlowRouter.getParam('verificationId');
+		if (vid){
+			let id = FlowRouter.getParam('verificationId').split("--");
+			let userEmail = id[0]+"."+id[1];
 
-		let user = RequesteeList.findOne({email: userEmail});
-		if (!!user) {
-			let uHash = CryptoJS.MD5(user.fname+user.lname+user._id.substring(10), secretWord).toString();
+			let user = RequesteeList.findOne({email: userEmail});
+			if (!!user) {
+				let uHash = CryptoJS.MD5(user.fname+user.lname+user._id.substring(10), secretWord).toString();
 
-			if (id[2] == uHash) {
-				RequesteeList.update(user._id, {
-					$set: {verified: 1},
-				});
-				return "verified";
-			} else {
-				return "not verified";
-				// FlowRouter.go('studentRequestConfirm');
+				if (id[2] == uHash) {
+					RequesteeList.update(user._id, {
+						$set: {verified: 1},
+					});
+					return "verified";
+				}
 			}
-		} else {
-			return "not verified";
-			// alert("Your request could not be verified");
-			// FlowRouter.go('studentRequestConfirm');
 		}
+		return "not Verified";		
 	}
 	});
 

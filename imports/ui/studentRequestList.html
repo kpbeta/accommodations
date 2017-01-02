@@ -1,57 +1,43 @@
 <template name="studentRequestList">
 	<div id="sortRequest">
-		SORT BY 
+		SORT BY (STUDENTS) 
 		<span id="byStudents">
 			<span id="byFirstName">First Name</span>
 			<span id="byLastName">Last Name</span>
 		</span>
-
-		<span id="byClass">
+		(CLASSES)
+		<span id="byClasses">
 			<span id="byClassName">Class Name</span>
-			<span id="byLastName">Professor's Name</span>
+			<span id="byProfName">Professor's Name</span>
 		</span>
 	</div>
-	{{#each requestsByClass}}
-		{{> dispRequestsByClass}}
-	{{/each}}
+	
+	
+	{{> Template.dynamic template=requestList}}
 </template>
-
-<!-- 
+	 
+<template name="dispByName">	 
 	{{#each requestsByName}}
-		{{> dispRequest}}
+		<div>
+			{{fname}} {{lname}} 
+			<ul>
+				{{#each class}}
+					<li>{{className}} - {{profName}}</li>
+				{{/each}}	
+			</ul>
+		</div>
 	{{/each}}
 </template>
- -->
- 
-<template name="dispRequestsByName">
-	<div>
-		{{fname}} {{lname}} 
-		<ul>
-			{{#each class}}
-				{{> dispClassList}}
-			{{/each}}	
-		</ul>
-		
-	</div>
-</template>
 
-<template name="dispClassList">
-	<li>{{className}} - {{profName}}</li>
-</template>
-
-
-<template name="dispRequestsByClass">
-	<div>
-		{{class}} - {{prof}} 
-		<ul>
-			{{#each student}}
-				{{> dispStudentList}}
-			{{/each}}	
-		</ul>
-		
-	</div>
-</template>
-
-<template name="dispStudentList">
-	<li>{{lname}}, {{fname}} - {{email}}</li>
+<template name="dispByClass">
+	{{#each requestsByClass}}
+		<div>
+			{{class}} - {{prof}} 
+			<ul>
+				{{#each student}}
+					<li>{{lname}}, {{fname}} - {{email}}</li>
+				{{/each}}	
+			</ul>
+		</div>
+	{{/each}}
 </template>

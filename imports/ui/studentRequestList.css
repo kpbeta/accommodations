@@ -1,3 +1,17 @@
 #sortRequest {
 	background-color: red;
 }
+#byStudents {
+	background-color: #8888FF;
+}
+#byClasses {
+	background-color: #88FF88;
+}
+#byFirstName {
+	background-color: blue;
+
+}
+#byFirstName:hover {
+	background-color: pink;
+	cursor: progress;
+}
