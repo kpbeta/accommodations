@@ -1,6 +1,6 @@
-#sortRequest {
+/*#sortRequest {
 	background-color: red;
-}
+}*/
 #byStudents {
 	background-color: #8888FF;
 }
@@ -15,3 +15,14 @@
 	background-color: pink;
 	cursor: progress;
 }
+
+/*div.allReqsBlock  {background-color: #999999;}*/
+/*div.reqBlock  {background-color: #999999;}
+div.reqSubBlock  {background-color: #999999;}*/
+
+/*.req {
+	border: 20px solid transparent; 
+}*/
+/*.allReqsBlock {
+	border: 2px solid #444444;
+}*/

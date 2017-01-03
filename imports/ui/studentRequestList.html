@@ -1,5 +1,5 @@
 <template name="studentRequestList">
-	<!-- <div id="sortRequest">
+	<div id="sortRequest">
 		SORT BY (STUDENTS) 
 		<span id="byStudents">
 			<span id="byFirstName">First Name</span>
@@ -11,33 +11,47 @@
 			<span id="byProfName">Professor's Name</span>
 		</span>
 	</div>
-	 -->
+	
 	
 	{{> Template.dynamic template=requestList}}
 </template>
 	 
-<template name="dispByName">	 
-	{{#each requestsByName}}
-		<ul>
-			{{fname}} {{lname}} 
-			<ul>
-				{{#each class}}
-					<li>{{className}} - {{profName}}</li>
-				{{/each}}	
-			</ul>
-		</ul>
-	{{/each}}
+<template name="dispByName">
+	<div class="req col-xs-12">	
+		{{#each requestsByName}}
+			<div class="allReqsBlock">
+				<div class="reqBlock col-sm-4">	
+					{{fname}} {{lname}}
+				</div>
+				<div class="reqSubBlock col-sm-8">
+					<ul>
+						{{#each class}}
+							<li>{{className}} - {{profName}}</li>
+						{{/each}}	
+					</ul>
+				</div>
+			</div>
+			<hr width=100%>	
+		{{/each}}
+	</div>
 </template>
 
 <template name="dispByClass">
-	{{#each requestsByClass}}
-		<ul>
-			{{class}} - {{prof}} 
-			<ul>
-				{{#each student}}
-					<li>{{lname}}, {{fname}} - {{email}}</li>
-				{{/each}}	
-			</ul>
-		</ul>
-	{{/each}}
+	<div class="req">
+		{{#each requestsByClass}}
+			<div class="allReqsBlock col-md-12">
+				<div class="reqBlock col-md-4">	
+					{{class}} - {{prof}}
+				</div>
+				<div class="reqSubBlock col-md-8">
+					<ul>
+						{{#each student}}
+							<li>{{lname}}, {{fname}} - {{email}}</li>
+						{{/each}}	
+					</ul>
+				</div>
+			</div>
+			<hr width=100%>
+		{{/each}}
+	</div>
 </template>

@@ -49,7 +49,7 @@ Template.studentRequest.events({
 			lname: lastName,
 			email: userEmail,
 			classOf: "",
-			approved: 0
+			verified: 0
 		});
 	
 		let classes = [
@@ -79,13 +79,17 @@ Template.studentRequest.events({
 					requestedClassId = ClassList.insert({
 						className: classes[i],
 						profName: profs[i],
+						profEmail: "",
+						sendToProf: 0,
 						classTerm: "",
-						noteTaker: "",
+						noteTakerId: "",
+						noteTakerFirstName: "",
+						noteTakerLastName: "",
 						dateStarted: "",
 						days: "",
 						duration: "",
 						durationTotal: "",
-						status: ""
+						status: 0,
 					});
 				}
 
@@ -97,7 +101,7 @@ Template.studentRequest.events({
 					classId: requestedClassId,
 					className: classes[i],
 					profName: profs[i],
-					active: 0,
+					activeStatus: 0,
 				});
 			}
 		}
