@@ -22,12 +22,16 @@
 			<div class="allReqsBlock">
 				<div class="reqBlock col-sm-4">	
 					{{fname}} {{lname}}
+					<button class="thisStudentCreateApproveAll" id="{{fname}}_{{lname}}_CreateApproveAll">Approve this student for all Classes and Create all Classes</button>
 				</div>
 				<div class="reqSubBlock col-sm-8">
 					<ul>
 						{{#each class}}
 							<li>{{className}} - {{profName}}</li>
-						{{/each}}	
+							<button class="thisStudentClassApprove" id="{{fname}}_{{lname}}_{{className}}_Approve">
+							Approve this class for this student and create this class (if not created)
+							</button>
+						{{/each}}
 					</ul>
 				</div>
 			</div>
@@ -42,12 +46,18 @@
 			<div class="allReqsBlock col-md-12">
 				<div class="reqBlock col-md-4">	
 					{{class}} - {{prof}}
+
+					<button class="thisClassCreate" id="{{class}}_{{prof}}_Create">Crete this class (no students will be approved for the class)</button>
 				</div>
 				<div class="reqSubBlock col-md-8">
 					<ul>
 						{{#each student}}
 							<li>{{lname}}, {{fname}} - {{email}}</li>
-						{{/each}}	
+							<button class="thisClassApproveStudent" id="{{fname}}_{{lname}}_{{className}}_Approve">
+							Approve this student for this class and create this class (if not created)
+							</button>
+						{{/each}}
+						
 					</ul>
 				</div>
 			</div>

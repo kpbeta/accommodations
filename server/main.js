@@ -1,7 +1,7 @@
 import { Meteor } from 'meteor/meteor';
 import { Email } from 'meteor/email';
 
-import '../imports/api/studentRequestColl.js';
+import { RequesteeList, ClassList, RequesteeClassList} from '../imports/api/studentRequestColl.js';
 
 Meteor.startup(() => {  // code to run on server at startup
 	
@@ -25,7 +25,33 @@ Meteor.methods({
 			subject: subject,
 			text: text
 		});
-	}
+	},
 
+
+	//* IN ALL THE FOLLOWING 3 FUNCTIONS firstName and lastName are slippery slope. Use email instead
+	createRequestedClass: function(clName) {
+		ClassList.update({className: clName},
+				{$set: {status: 1}});
+		console.log('Create Class successful');
+	},
+
+	studentApproveClass: function(fiName, laName, clName) {
+		createRequestedClass(clName);
+		RequesteeClassList.update({className: clName, fname: fiName, lname: laName},
+			{$set: {activeStatus: 1}});
+		console.log('Approve class successful');
+	},
+
+	studentApproveAllClasses: function(fiName, laName) {
+		var entries = RequesteeClassList.find({fname: fiName, lname: laName}).fetch();
+		console.log(entries);
+		for (var i = 0; i < entries.length; i++) {
+			createRequestedClass(entries[i].className);
+		}
+		RequesteeClassList.update({fname: fiName, lname: laName},
+			{$set: {activeStatus: 1}});
+		console.log('Approve all successful');
+	},
 
 });
+

@@ -101,6 +101,7 @@ Template.studentRequest.events({
 					classId: requestedClassId,
 					className: classes[i],
 					profName: profs[i],
+					timestamp: '',
 					activeStatus: 0,
 				});
 			}
