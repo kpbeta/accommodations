@@ -92,21 +92,16 @@ Template.dispByName.events({
 
 		let targ = event.target;
 		var idInfo = targ.id.split("_");
-		console.log(typeof(idInfo[1]));
-		// var fname = idInfo[0];
-		// var lname = idInfo[1];
-
-		// console.log(idInfo);
 
 		Meteor.call('studentApproveAllClasses',
 			idInfo[0],
 			idInfo[1]);
-		
-		// var fname = idInfo[0];
-		// var lname = idInfo[1];
-		// Meteor.call('studentApproveAllClasses',
-		// 	fname,
-		// 	lname);
+	},
+
+	'click .thisStudentApproveClass'(event) {
+		event.preventDefault();
+
+		let targ = event.target;
 
 	}
 });

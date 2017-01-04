@@ -15,10 +15,10 @@ Meteor.startup(() => {  // code to run on server at startup
 Meteor.methods({  
 	//Method to send Email
 	sendEmail: function (to, from, subject, text) {
-		//check([to, from, subject, text], [String]);
+		check([to, from, subject, text], [String]);
 		// Let other method calls from the same client start running,
 		// without waiting for the email sending to complete.
-		//this.unblock();
+		this.unblock();
 		Email.send({
 			to: to,
 			from: from,
@@ -30,27 +30,33 @@ Meteor.methods({
 
 	//* IN ALL THE FOLLOWING 3 FUNCTIONS firstName and lastName are slippery slope. Use email instead
 	createRequestedClass: function(clName) {
+		check(clName, String);
 		ClassList.update({className: clName},
 				{$set: {status: 1}});
-		console.log('Create Class successful');
+		// console.log('Create Class successful');
 	},
 
 	studentApproveClass: function(fiName, laName, clName) {
-		createRequestedClass(clName);
+		check([finame, laName, clName], [String]);
+		Meteor.call('thiscreateRequestedClass',
+				'clName');
 		RequesteeClassList.update({className: clName, fname: fiName, lname: laName},
 			{$set: {activeStatus: 1}});
-		console.log('Approve class successful');
+		// console.log('Approve class successful');
 	},
 
-	studentApproveAllClasses: function(fiName, laName) {
+	'studentApproveAllClasses': function(fiName, laName) {
+		check([fiName, laName], [String]);
+		// console.log(fiName+laName);
 		var entries = RequesteeClassList.find({fname: fiName, lname: laName}).fetch();
-		console.log(entries);
+		// console.log(entries);
 		for (var i = 0; i < entries.length; i++) {
-			createRequestedClass(entries[i].className);
+			Meteor.call('createRequestedClass',
+					'entries[i].className');
 		}
 		RequesteeClassList.update({fname: fiName, lname: laName},
 			{$set: {activeStatus: 1}});
-		console.log('Approve all successful');
+		// console.log('Approve all successful');
 	},
 
 });

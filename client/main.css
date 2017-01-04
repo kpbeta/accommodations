@@ -51,5 +51,61 @@ table {
 	border-collapse: collapse;
 	border-spacing: 0;
 }
+/*------------BODY CSS----------------*/
+/* Move down content because we have a fixed navbar that is 100px tall */
+body {
+  padding-top: 100px;
+  background: transparent;
+  height: 100%;
+  width: 100%;
+}
 
-/*-----------------------------------*/
+
+/*------------HEDER CSS------------------*/
+.goldenRibbon {
+	position: fixed;
+	
+    width: 100%;
+    background-color: #FFCD04;
+ }
+.topRibbon {
+	height: 10px;
+    top: 0px;
+    z-index: 100;
+}
+.bottomRibbon {
+	height: 11px;
+	top: 59px;
+	z-index: 1002;
+}
+.titlebar {
+	top: 10px;
+	background-color: #00045E;
+	color: #FFCD04;
+	height: 50px;
+}
+.titlebar .navbar-brand {
+	color: #FFCD04;
+	font-weight: bold;
+}
+.brandImage {
+	position: relative;
+	top: -10px;
+    height: 100px;
+    width: 100px;
+    background-color: #FFFFFF;
+    background-image: url(/images/Trinity_College_Connecticut_Seal.svg.png);
+    background-size: 100px;
+    background-repeat: no-repeat;
+    display: inline-block;
+    z-index: 1200;
+    float: left;
+}
+
+.brandName {
+	padding-left: 30px;
+}
+
+/*------------Main template-----------------*/
+.contentWrapper {
+}

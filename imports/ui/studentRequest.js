@@ -107,8 +107,6 @@ Template.studentRequest.events({
 			}
 		}
 
-		FlowRouter.go('studentRequestConfirm');
-
 		Meteor.call('sendEmail',
 				'kalyanranjanp@gmail.com',
 				'asd@gmail.com',
@@ -116,5 +114,6 @@ Template.studentRequest.events({
 				createVerificationEmail(firstName, lastName, userEmail, requesteeId, secretWord)
 				);
 
+		FlowRouter.go('studentRequestConfirm');
 	}
 });

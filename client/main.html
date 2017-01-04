@@ -1,10 +1,33 @@
 <head>
-  <title>Trinity Accomodations</title>
+	  <title>Trinity Accomodations</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
-	{{> loginButtons }}
-	{{> mainContent }}
+	<div class="col-sm-12 goldenRibbon topRibbon"></div>
+	<!-- <div class="col-sm-12 goldenRibbon bottomRibbon"></div> -->
+	<div class="contentWrapper">
+	
+		<div class="headerWrapper col-xs-12">
+			{{> headerTemplate }}	
+		</div>
+		<div class="contentWrapper col-xxs-12">
+			{{> loginButtons }}		
+		</div>
+	</div>
+
 </body>
+
+<template name="headerTemplate">
+		<nav class="titlebar navbar navbar-default navbar-fixed-top">
+	    	<div class="container">
+	        	<div class="navbar-header">
+	        		<div class="brandImage"></div>
+	        		<div class="navbar-brand brandName">Trinity College Student Accommodations </div>
+	         	</div>
+	     	</div>
+	    </nav>
+	
+</template>
 
 <template name="mainContent">
 	{{> Template.dynamic template=main }}
@@ -18,7 +41,7 @@
 	Sorry! You are not authorized to see this page.
 </template>
 
-
 <template name="notFound">
 	ERROR 404: Page not Found
 </template>
+
