@@ -73,11 +73,6 @@ body {
     top: 0px;
     z-index: 100;
 }
-.bottomRibbon {
-	height: 11px;
-	top: 59px;
-	z-index: 1002;
-}
 .titlebar {
 	top: 10px;
 	background-color: #00045E;
@@ -88,7 +83,10 @@ body {
 	color: #FFCD04;
 	font-weight: bold;
 }
-.brandImage {
+.titlebar>li.active {
+	background-color: #FFCD04;
+}
+/*.brandImage {
 	position: relative;
 	top: -10px;
     height: 100px;
@@ -100,11 +98,12 @@ body {
     display: inline-block;
     z-index: 1200;
     float: left;
-}
+}*/
 
-.brandName {
-	padding-left: 30px;
-}
+/*.brandName {
+	padding-left: 15px;
+}*/
+
 
 /*------------Main template-----------------*/
 .contentWrapper {

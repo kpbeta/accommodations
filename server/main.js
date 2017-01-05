@@ -37,15 +37,15 @@ Meteor.methods({
 	},
 
 	studentApproveClass: function(fiName, laName, clName) {
-		check([finame, laName, clName], [String]);
-		Meteor.call('thiscreateRequestedClass',
+		check([fiName, laName, clName], [String]);
+		Meteor.call('createRequestedClass',
 				'clName');
 		RequesteeClassList.update({className: clName, fname: fiName, lname: laName},
 			{$set: {activeStatus: 1}});
 		// console.log('Approve class successful');
 	},
 
-	'studentApproveAllClasses': function(fiName, laName) {
+	studentApproveAllClasses: function(fiName, laName) {
 		check([fiName, laName], [String]);
 		// console.log(fiName+laName);
 		var entries = RequesteeClassList.find({fname: fiName, lname: laName}).fetch();

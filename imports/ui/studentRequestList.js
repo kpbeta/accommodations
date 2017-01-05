@@ -98,10 +98,41 @@ Template.dispByName.events({
 			idInfo[1]);
 	},
 
-	'click .thisStudentApproveClass'(event) {
+	'click .thisStudentClassApprove'(event) {
 		event.preventDefault();
 
 		let targ = event.target;
+		var idInfo = targ.id.split("_");
 
+		Meteor.call('studentApproveClass',
+			idInfo[0],
+			idInfo[1],
+			idInfo[2]
+			);
+	}
+});
+
+Template.dispByClass.events({
+	'click .thisClassCreate'(event) {
+		event.preventDefault();
+
+		let targ = event.target;
+		var idInfo = targ.id.split("_");
+
+		Meteor.call('createRequestedClass',
+			idInfo[0]);
+	},
+
+	'click .thisClassApproveStudent'(event) {
+		event.preventDefault();
+
+		let targ = event.target;
+		var idInfo = targ.id.split("_");
+
+		Meteor.call('studentApproveClass',
+			idInfo[0],
+			idInfo[1],
+			idInfo[2]
+			);
 	}
 });
